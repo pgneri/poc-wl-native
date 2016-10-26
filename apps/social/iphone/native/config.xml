@@ -8,9 +8,9 @@
 # to you under the Apache License, Version 2.0 (the
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
-# 
+#
 # http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing,
 # software distributed under the License is distributed on an
 # "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -40,7 +40,7 @@
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="EnableLocation" value="false" /><!-- DEPRECATED -->
     <preference name="UIControls" value='{"TabBarSettings": {"position": "bottom", "height": 49}, "ToolBarSettings": {"style": "Default"}}'/>
-   
+
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
@@ -99,7 +99,7 @@
         <param name="ios-package" value="CDVVibration" />
     </feature>
 
-    
+
     <!--worklight-->
     <feature name="WLSplashScreen">
         <param name="ios-package" value="WLSplashPlugin" />
@@ -179,4 +179,26 @@
     	<param name="ios-package" value="WLTrusteerPlugin" />
     </feature>
     <access origin="*" />
+
+		<!--config .plist-->
+		<!-- Não foi testado, deve inserir as informações abaixo no .plist
+
+		<platform name="ios">
+			<config-file target="*-Info.plist" parent="CFBundleURLTypes">
+				<key>NSAppTransportSecurity</key>
+				<dict>
+					<key>NSAllowsArbitraryLoads</key>
+					<true/>
+				</dict>
+			</config-file>
+			<config-file target="*-Info.plist" parent="CFBundleURLTypes">
+				<key>LSApplicationQueriesSchemes</key>
+		    <array>
+		    <string>whatsapp</string>
+		    </array>
+			</config-file>
+		</platform>
+	-->
+
+
 </widget>

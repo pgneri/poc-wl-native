@@ -16,6 +16,12 @@ angular.module('HelloUserApp', []).controller('HelloUserController',
 
 	$scope.share = function() {
 		//navigator.socialSharing.share('mensgem de teste');
+        
+        /* typeData exemple
+        / filename : 'http://www.pdf995.com/samples/pdf.pdf'
+        / filedata : 'data:image/jpeg;base64,...'
+        */
+        
 		var params = {message : 'Comprovante de ted do Original.', title : 'Compartilhar via...', filename:'http://www.pdf995.com/samples/pdf.pdf', filedata:null};
 		WL.NativePage.show("SocialSharing", backFromNativePage, params);
 	};
