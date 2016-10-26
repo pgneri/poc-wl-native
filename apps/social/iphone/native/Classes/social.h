@@ -6,7 +6,7 @@
 #import "WLAppDelegate.h"
 #import "WL.h"
 
-@interface MyAppDelegate : WLAppDelegate <WLInitWebFrameworkDelegate, UIApplicationDelegate> {
+@interface MyAppDelegate : WLAppDelegate <WLInitWebFrameworkDelegate> {
     
 }
 @property (nonatomic, retain) IBOutlet UIWindow* window;

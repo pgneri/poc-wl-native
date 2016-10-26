@@ -8,7 +8,6 @@
 #import "WLWebFrameworkInitResult.h"
 #import "Cordova/CDVViewController.h"
 
-
 @interface Compatibility50ViewController : UIViewController
 @end
 

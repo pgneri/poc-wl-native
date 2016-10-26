@@ -14,7 +14,6 @@
 
 @interface SocialSharing : UIViewController <UIPopoverControllerDelegate, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate>
 
-@property (retain, nonatomic) MyAppDelegate* wlDelegate;
 @property (nonatomic , strong) NSString* params;
 
 @property (nonatomic, strong) NSString* message;

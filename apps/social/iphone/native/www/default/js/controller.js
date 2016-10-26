@@ -27,7 +27,10 @@ angular.module('HelloUserApp', []).controller('HelloUserController',
 	};
 
 	function backFromNativePage(data){
-		console.log('retorno');
+		console.log('retorno: '+ data.retorno);
+        if(data.retorno == '1'){
+            alert('Compartilhado com Sucesso');
+        }
 	}
 
 

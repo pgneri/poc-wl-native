@@ -79,8 +79,12 @@
     
     [activityViewController setCompletionWithItemsHandler:
         ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+        NSString *compartilhado = @"0";
+        if(completed){
+            compartilhado = @"1";
+        }
         [[self presentingViewController] dismissViewControllerAnimated:NO completion:nil];
-        [NativePage showWebView:[NSDictionary dictionaryWithObject:@"value" forKey:@"key"]];
+        [NativePage showWebView:[NSDictionary dictionaryWithObject:compartilhado forKey:@"retorno"]];
     }];
     
     [self presentViewController:activityViewController animated:YES completion:nil];
@@ -149,7 +153,6 @@
   return [[NSData alloc] initWithBase64EncodedString:aString options:0];
 }
 
-
 -(NSString*) storeInFile: (NSString*) fileName
                 fileData: (NSData*) fileData {
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -166,32 +169,5 @@
     [[NSFileManager defaultManager]removeItemAtPath:_tempStoredFile error:&error];
   }
 }
-
-// This method is called after the WL web framework initialization is complete and web resources are ready to be used.
--(void)wlInitWebFrameworkDidCompleteWithResult:(WLWebFrameworkInitResult *)result
-{
-    if ([result statusCode] == WLWebFrameworkInitResultSuccess) {
-        [self wlInitDidCompleteSuccessfully];
-    } else {
-        [self wlInitDidFailWithResult:result];
-    }
-}
-
--(void)wlInitDidCompleteSuccessfully
-{
-    
-}
-
--(void)wlInitDidFailWithResult:(WLWebFrameworkInitResult *)result
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                  message:[result message]
-                                                  delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-    [alertView show];
-}
-
-
 
 @end
