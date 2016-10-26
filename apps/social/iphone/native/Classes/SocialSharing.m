@@ -8,6 +8,7 @@
 
 #import "SocialSharing.h"
 #import "social.h"
+#import "NativePage.h"
 #import <Foundation/NSException.h>
 #import "WLWebFrameworkInitResult.h"
 #import "Cordova/CDVViewController.h"
@@ -17,15 +18,6 @@
 @end
 
 @implementation SocialSharing
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 -(void)setDataFromWebView:(NSDictionary*)data {
     self.message = (NSString*)[data valueForKey:@"message"];
@@ -85,12 +77,13 @@
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:applicationActivities];
     activityViewController.popoverPresentationController.sourceView = self.view;
     
-//    [activityViewController setCompletionWithItemsHandler:
-//        ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
-//    }];
+    [activityViewController setCompletionWithItemsHandler:
+        ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+        [[self presentingViewController] dismissViewControllerAnimated:NO completion:nil];
+        [NativePage showWebView:[NSDictionary dictionaryWithObject:@"value" forKey:@"key"]];
+    }];
     
     [self presentViewController:activityViewController animated:YES completion:nil];
-    
 }
 
 
